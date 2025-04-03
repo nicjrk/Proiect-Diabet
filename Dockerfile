@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiază tot codul aplicației din subdirectorul diabet-app
-COPY diabet-app/ .
+COPY . .
 
 # Expune portul folosit de aplicație
 EXPOSE 8080
