@@ -4,15 +4,17 @@ FROM python:3.10-slim
 # Directorul de lucru
 WORKDIR /app
 
-# Copiază requirements și instalează
+# Copiază requirements.txt din root
 COPY requirements.txt .
+
+# Instalează dependințele
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiază tot proiectul
-COPY . .
+# Copiază tot codul aplicației din subdirectorul diabet-app
+COPY diabet-app/ .
 
-# Expune portul
+# Expune portul folosit de aplicație
 EXPOSE 8080
 
-# Comanda de start
+# Pornește aplicația Flask cu gunicorn
 CMD ["gunicorn", "-b", ":8080", "main:app"]
