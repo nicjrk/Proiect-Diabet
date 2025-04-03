@@ -25,6 +25,3 @@ def predict():
         return jsonify({"predictie": rezultat})
     except Exception as e:
         return jsonify({"eroare": str(e)}), 400
-
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=8080)
